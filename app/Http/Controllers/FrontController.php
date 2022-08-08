@@ -44,28 +44,5 @@ class FrontController extends Controller
         $page_name = 'Service Name from route';
         return view('service',compact("services",'page_name'));
     }
-    public function SentMeDetails(Request $request)
-    {
-        $sabbir_secret_key = 12345;
-        $user_keys = $request->amar_key;
 
-        $data = [
-
-                'name'=>'sabbir',
-                'dezignation'=>'Web Developer',
-                'mobile'=>'0000',
-                'acn'=>'sabbiraccount',
-
-        ];
-
-        if($sabbir_secret_key == $user_keys){
-            return response()->json([
-                'user_info' =>$data,
-            ]);
-        }else{
-            return response([
-                'Message' => 'Provide valid usr key',
-            ]);
-        }
-    }
 }
